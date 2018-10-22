@@ -20,3 +20,24 @@ Therefore, the check digit value is 7. i.e. (53 / 10) = 5 remainder 3; 10 - 3 = 
 */
 
 package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    const base = 85000302400
+    const even = 5 + 0 + 3 + 2
+    const odd = 8 + 0 + 0 + 0 + 4
+    
+    for i = 0 to 99 {
+        od = i % 10;
+        ev = (i -od)/10
+        sum = ((3 * (odd + od)) + even + ev) % 10 
+        if sum != 0 then {
+            sum = 10 - sum;
+        }
+        fmt.printf(base + i, sum)        
+    }
+    fmt.printf("https://barcode.tec-it.com/barcode.ashx?data=" , base + i, sum, "&code=UPCA&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0");
+}
