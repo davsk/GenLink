@@ -23,6 +23,7 @@ package main
 
 import (
     "fmt"
+    "strconv"
 )
 
 func main() {
@@ -30,14 +31,22 @@ func main() {
     const even = 5 + 0 + 3 + 2
     const odd = 8 + 0 + 0 + 0 + 4
     
-    for i = 0 to 99 {
-        od = i % 10;
-        ev = (i -od)/10
-        sum = ((3 * (odd + od)) + even + ev) % 10 
-        if sum != 0 then {
+    for i := 0; i < 100; i++ {
+        od := i % 10;
+        ev := (i -od)/10
+        sum := ((3 * (odd + od)) + even + ev) % 10 
+        if sum != 0 {
             sum = 10 - sum;
         }
-        fmt.printf(base + i, sum)        
-    }
-    fmt.printf("https://barcode.tec-it.com/barcode.ashx?data=" , base + i, sum, "&code=UPCA&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0");
+        fmt.Println(base + i, sum)        
+        fmt.Println()
+        fmt.Println("https://barcode.tec-it.com/barcode.ashx?data="+ strconv.Itoa(base + i)+strconv.Itoa(sum)+ "&code=UPCA&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0");
+        fmt.Println()
+        
+        fmt.Println("![](https://barcode.tec-it.com/barcode.ashx?data="+ strconv.Itoa(base + i)+strconv.Itoa(sum)+ "&code=UPCA&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0)");
+        fmt.Println();
+        fmt.Println("https://qrcode.tec-it.com/API/QRCode?data=https%3a%2f%2fHuny-B.CBD-Oil.App%2fUPC%2f"+strconv.Itoa(i)+"%2f&errorcorrection=M&backcolor=%23ffffff&quietzone=0.125&quietunit=In&size=Small");
+        fmt.Println();
+        fmt.Println("![](https://qrcode.tec-it.com/API/QRCode?data=https%3a%2f%2fHuny-B.CBD-Oil.App%2fUPC%2f"+strconv.Itoa(i)+"%2f&errorcorrection=M&backcolor=%23ffffff&quietzone=0.125&quietunit=In&size=Small)");
+        }
 }
