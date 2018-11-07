@@ -38,15 +38,39 @@ func main() {
         if sum != 0 {
             sum = 10 - sum;
         }
-        fmt.Println(base + i, sum)        
-        fmt.Println()
-        fmt.Println("https://barcode.tec-it.com/barcode.ashx?data="+ strconv.Itoa(base + i)+strconv.Itoa(sum)+ "&code=UPCA&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0");
+
+        var codeStr string
+        if i < 10 {
+            codeStr = "0" + strconv.Itoa(i)
+        } else {
+            codeStr = strconv.Itoa(i)
+        }
+
+        fmt.Println("### UPC" +
+            strconv.Itoa(base + i) +
+            strconv.Itoa(sum));
         fmt.Println()
         
-        fmt.Println("![](https://barcode.tec-it.com/barcode.ashx?data="+ strconv.Itoa(base + i)+strconv.Itoa(sum)+ "&code=UPCA&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0)");
+        fmt.Println("![](https://barcode.tec-it.com/barcode.ashx?data=" +
+            strconv.Itoa(base + i) +
+            strconv.Itoa(sum) +
+            "&code=UPCA&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Svg&rotation=0&color=%23000808&bgcolor=%23fff8f8&qunit=Mm&quiet=2)");
         fmt.Println();
-        fmt.Println("https://qrcode.tec-it.com/API/QRCode?data=https%3a%2f%2fHuny-B.CBD-Oil.App%2fUPC%2f"+strconv.Itoa(i)+"%2f&errorcorrection=M&backcolor=%23ffffff&quietzone=0.125&quietunit=In&size=Small");
+
+        fmt.Println("![](https://barcode.tec-it.com/barcode.ashx?data=" +
+            strconv.Itoa(base + i) +
+            strconv.Itoa(sum) +
+            "&code=UPCA&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Svg&rotation=90&color=%23000808&bgcolor=%23fff8f8&qunit=Mm&quiet=2)");
         fmt.Println();
-        fmt.Println("![](https://qrcode.tec-it.com/API/QRCode?data=https%3a%2f%2fHuny-B.CBD-Oil.App%2fUPC%2f"+strconv.Itoa(i)+"%2f&errorcorrection=M&backcolor=%23ffffff&quietzone=0.125&quietunit=In&size=Small)");
-        }
+
+        fmt.Println("    https://qrcode.tec-it.com/API/QRCode?data=https%3a%2f%2fHuny-B.info%2fc%2f" +
+            codeStr +
+            "%2f&errorcorrection=L&backcolor=%23fff8f8&quietzone=0.125&quietunit=In&size=Large");
+        fmt.Println();
+
+        fmt.Println("![](https://qrcode.tec-it.com/API/QRCode?data=https%3a%2f%2fHuny-B.info%2fc%2f" +
+            codeStr +
+            "%2f&errorcorrection=L&backcolor=%23fff8f8&quietzone=0.125&quietunit=In&size=Large)");
+        fmt.Println();
+    }
 }
