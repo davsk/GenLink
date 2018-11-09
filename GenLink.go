@@ -46,7 +46,12 @@ func main() {
             codeStr = strconv.Itoa(i)
         }
 
-        fmt.Println("### UPC" +
+        fmt.Println("hugo new c/" + codeStr)
+        fmt.Println("hugo new upc/" +
+                    strconv.Itoa(base + i) +
+                    strconv.Itoa(sum));
+        
+        /*fmt.Println("### UPC" +
             strconv.Itoa(base + i) +
             strconv.Itoa(sum));
         fmt.Println()
@@ -71,6 +76,6 @@ func main() {
         fmt.Println("![](https://qrcode.tec-it.com/API/QRCode?data=https%3a%2f%2fHuny-B.info%2fc%2f" +
             codeStr +
             "%2f&errorcorrection=L&backcolor=%23fff8f8&quietzone=0.125&quietunit=In&size=Large)");
-        fmt.Println();
+        fmt.Println();*/
     }
 }
