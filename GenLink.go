@@ -30,7 +30,8 @@ func main() {
     const base = 85000302400
     const even = 5 + 0 + 3 + 2
     const odd = 8 + 0 + 0 + 0 + 4
-    
+    aFace := [...]string {"","Front","Left","Top","","","","Back","Right","Bottom"}
+    aAngle := [...]string {"","Center - No Plunge","Left - No Plunge", "Right - No Plunge","","","","Center - Plunge","Left - Plunge","Right - Plunge"}
     for i := 0; i < 100; i++ {
         od := i % 10;
         ev := (i -od)/10
@@ -39,18 +40,37 @@ func main() {
             sum = 10 - sum;
         }
 
-        var codeStr string
+        /*var codeStr string
         if i < 10 {
             codeStr = "0" + strconv.Itoa(i)
         } else {
             codeStr = strconv.Itoa(i)
-        }
+        }*/
 
-        fmt.Println("hugo new c/" + codeStr)
+        angle := i % 10
+        facing := (i - angle)/10
+        
+        facingStr := aFace[facing]
+        angleStr := aAngle[angle]
+        
+        if ((len(angleStr) == 0) || (len(facingStr) == 0)) {
+           ; // do nothing
+        } else {
+            fmt.Println("## Product "+ facingStr + " Face, Angle " + angleStr)
+            fmt.Println("### GDTI: " +
+                       strconv.Itoa(base + i) +
+                       strconv.Itoa(sum) +
+                       "SKU[8] + UPC[2] + GMINT01.jpg") 
+            fmt.Println("-[ ] Photoshoot")
+            fmt.Println("-[ ] Crop & Mask")
+            fmt.Println("-[ ] Deploy to CDN")
+            
+        }
+        /*fmt.Println("hugo new c/" + codeStr)
         fmt.Println("hugo new upc/" +
                     strconv.Itoa(base + i) +
                     strconv.Itoa(sum));
-        
+       */ 
         /*fmt.Println("### UPC" +
             strconv.Itoa(base + i) +
             strconv.Itoa(sum));
